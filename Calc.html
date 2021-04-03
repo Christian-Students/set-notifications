@@ -18,11 +18,7 @@ function myFunction() {
   var text = document.getElementById("text");
 }
   //if (checkBox.checked == true){
-  //  text.style.display = "block";
-  //} else {
-  //   text.style.display = "none";
-  //}
-//}
+ 
 
 function CalculateItemsValue() {
 	var total = 0;
@@ -31,15 +27,13 @@ function CalculateItemsValue() {
 		itemID = document.getElementById("qnt_"+i);
 		if (typeof itemID === 'undefined' || itemID === null) {
 			alert("No such item - " + "qnt_"+i);
-		} else if (itemID == "qnt_4") {
-			if (checkBox.checked == true){
+		} else {
+			 if (checkBox.checked == true){
 				qnt_4.value = 1;
-			}
+  			}
 			else{
 				qnt_4.value = 0;
 			}
-			total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
-		} else {
 			total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
 		}
 		
@@ -76,7 +70,7 @@ function CalculateItemsValue() {
 	</tr>
 	<tr>
 		<td>**OR** We request a couple's room</td>
-		<td><input name="qnt_4" type="checkbox" id="qnt_4" value="1" size="3" data-price="260" onkeyup="CalculateItemsValue()" /></td>
+		<td><input name="qnt_4" type="checkbox" id="qnt_4" value="1" size="3" data-price="260" click="CalculateItemsValue()" /></td>
 		<td>$130pp</td>
 	</tr>
 	<tr>
