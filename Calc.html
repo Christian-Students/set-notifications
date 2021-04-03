@@ -1,20 +1,81 @@
-<input name="qnt_1" type="text" id="qnt_1" value="0" size="3" data-price="100">
-<script>
-function CalculateItemsValue() {
-    var total = 0;
-    for (i=1; i<=total_items; i++) {
-         
-        itemID = document.getElementById("qnt_"+i);
-        if (typeof itemID === 'undefined' || itemID === null) {
-            alert("No such item - " + "qnt_"+i);
-        } else {
-            total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
-        }
-         
-    }
-    document.getElementById("ItemsTotal").innerHTML = "$" + total;
-     
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Price Calculation Based On Quantity</title>
+<style>
+#calculator {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
 }
-var total_items = 4;
+</style>
+
+<script language="javascript">
+var total_items = 5;
+
+function CalculateItemsValue() {
+	var total = 0;
+	for (i=1; i<=total_items; i++) {
+		
+		itemID = document.getElementById("qnt_"+i);
+		if (typeof itemID === 'undefined' || itemID === null) {
+			alert("No such item - " + "qnt_"+i);
+		} else {
+			total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
+		}
+		
+	}
+	document.getElementById("ItemsTotal").innerHTML = "$" + total;
+	
+}
 </script>
-<div id="ItemsTotal">$0</div>
+</head>
+
+<body>
+
+<table width="400" border="1" cellpadding="5" id="calculator">
+	<tr>
+		<td bgcolor="#CCCCCC">&nbsp;</td>
+		<td width="50" bgcolor="#CCCCCC"><strong>Quantity</strong></td>
+		<td width="50" bgcolor="#CCCCCC"><strong>Price</strong></td>
+	</tr>
+	<tr>
+		<td>Number of Infants under 2 years of age</td>
+		<td>
+		<input name="qnt_1" type="text" id="qnt_1" value="0" size="3" data-price="0" onkeyup="CalculateItemsValue()" /></td>
+		<td>$0</td>
+	</tr>
+	<tr>
+		<td>Number of Children 3 - 8 years of age</td>
+		<td><input name="qnt_2" type="text" id="qnt_2" value="0" size="3" data-price="75" onkeyup="CalculateItemsValue()" /></td>
+		<td>$75</td>
+	</tr>
+	<tr>
+		<td>Number of Others 9 years old and above</td>
+		<td><input name="qnt_3" type="text" id="qnt_3" value="0" size="3" data-price="120" onkeyup="CalculateItemsValue()" /></td>
+		<td>$120</td>
+	</tr>
+	<tr>
+		<td>**OR** We request a couple's room</td>
+		<td><input name="qnt_4" type="checkbox" id="qnt_4" value="0" size="3" data-price="260" onkeyup="CalculateItemsValue()" /></td>
+		<td>$130pp</td>
+	</tr>
+    <tr>
+		<td>Number of people needing Linen package</td>
+		<td><input name="qnt_5" type="text" id="qnt_5" value="0" size="3" data-price="11" onkeyup="CalculateItemsValue()" /></td>
+		<td>$11</td>
+	</tr>
+	<tr>
+		<td bgcolor="#CCCCCC">&nbsp;</td>
+		<td align="right" bgcolor="#CCCCCC"><strong>Total:</strong></td>
+		<td bgcolor="#CCCCCC"><strong><div id="ItemsTotal">$0</div></strong></td>
+	</tr>
+</table>
+
+
+
+</div>
+
+
+</body>
+</html>
