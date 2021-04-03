@@ -1,1 +1,20 @@
-<iframe width="800" height="600" border="0" src="https://docs.google.com/spreadsheets/d/1lAolPJxqkLAxX00HO_X4NH9dy3B0g3U3PLbEu7gc99Q/edit#gid=0"></iframe>
+<input name="qnt_1" type="text" id="qnt_1" value="0" size="3" data-price="100">
+<script>
+function CalculateItemsValue() {
+    var total = 0;
+    for (i=1; i<=total_items; i++) {
+         
+        itemID = document.getElementById("qnt_"+i);
+        if (typeof itemID === 'undefined' || itemID === null) {
+            alert("No such item - " + "qnt_"+i);
+        } else {
+            total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
+        }
+         
+    }
+    document.getElementById("ItemsTotal").innerHTML = "$" + total;
+     
+}
+var total_items = 4;
+</script>
+<div id="ItemsTotal">$0</div>
