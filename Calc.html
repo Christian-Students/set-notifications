@@ -12,7 +12,10 @@
 
 <script language="javascript">
 var total_items = 5;
-checkboxObject.value = 260;
+//checkboxObject.value = 260;
+$('#custom7').on('change', function(){
+$('#hdncustom7').val(this.checked ? 1 : 0);
+});
 
 function CalculateItemsValue() {
 	var total = 0;
@@ -58,10 +61,15 @@ function CalculateItemsValue() {
 	</tr>
 	<tr>
 		<td>**OR** We request a couple's room</td>
-		<td><input name="qnt_4" type="checkbox" id="qnt_4" value="260" size="3" data-price="260" onkeyup="CalculateItemsValue()" /></td>
+		<td><input name="qnt_4" type="checkbox" id="qnt_4" value="1" size="3" data-price="260" onkeyup="CalculateItemsValue()" /></td>
 		<td>$130pp</td>
 	</tr>
-    <tr>
+	<tr>
+		<input type="checkbox" value="1" id="custom7" checked="checked" data-price="260"/> 
+		<input type="hidden" value="1" id="hdncustom7" name="custom7" />
+		<label for="custom7">**OR** We request a couple's room</label>
+	</tr> 
+	<tr>
 		<td>Number of people needing Linen package</td>
 		<td><input name="qnt_5" type="text" id="qnt_5" value="0" size="3" data-price="11" onkeyup="CalculateItemsValue()" /></td>
 		<td>$11</td>
