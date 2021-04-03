@@ -11,7 +11,7 @@
 </style>
 
 <script language="javascript">
-var total_items = 5;
+var total_items = 4;
 //checkboxObject.value = 260;
 function myFunction() {
   var checkBox = document.getElementById("myCheck");
@@ -28,12 +28,6 @@ function CalculateItemsValue() {
 		if (typeof itemID === 'undefined' || itemID === null) {
 			alert("No such item - " + "qnt_"+i);
 		} else {
-			 if (checkBox.checked == true){
-				qnt_4.value = 1;
-  			}
-			else{
-				qnt_4.value = 0;
-			}
 			total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
 		}
 		
@@ -67,11 +61,6 @@ function CalculateItemsValue() {
 		<td>Number of Others 9 years old and above</td>
 		<td><input name="qnt_3" type="text" id="qnt_3" value="0" size="3" data-price="120" onkeyup="CalculateItemsValue()" /></td>
 		<td>$120</td>
-	</tr>
-	<tr>
-		<td>**OR** We request a couple's room</td>
-		<td><input name="qnt_4" type="checkbox" id="qnt_4" value="1" size="3" data-price="260" click="CalculateItemsValue()" /></td>
-		<td>$130pp</td>
 	</tr>
 	<tr>
 		<td>Number of people needing Linen package</td>
