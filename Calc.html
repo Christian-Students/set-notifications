@@ -13,14 +13,15 @@
 <script language="javascript">
 var total_items = 5;
 //checkboxObject.value = 260;
-document.addEventListener('DOMContentLoaded', e => {
-for (let checkbox of document.querySelectorAll('input[type=checkbox]')) {
-    checkbox.value = checkbox.checked ? 1 : 0;
-    checkbox.addEventListener('change', e => {
-            e.target.value = e.target.checked ? 1 : 0;
-       });
-    }
-});
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  //if (checkBox.checked == true){
+  //  text.style.display = "block";
+  //} else {
+  //   text.style.display = "none";
+  //}
+//}
 
 function CalculateItemsValue() {
 	var total = 0;
@@ -29,6 +30,14 @@ function CalculateItemsValue() {
 		itemID = document.getElementById("qnt_"+i);
 		if (typeof itemID === 'undefined' || itemID === null) {
 			alert("No such item - " + "qnt_"+i);
+		} else if (itemID == "qnt_4") {
+			if (checkBox.checked == true){
+				qnt_4.value = 1;
+			}
+			else{
+				qnt_4.value = 0
+			}
+			total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
 		} else {
 			total = total + parseInt(itemID.value) * parseInt(itemID.getAttribute("data-price"));
 		}
